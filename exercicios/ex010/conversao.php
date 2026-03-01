@@ -35,9 +35,19 @@
     
         //Calculando o valor em Euro
         $euro = $real / $cotação ;
-    
+
+        //Calculando os centavos do Real
+        $centavos_real = $_REQUEST["din"] ?? 0;
+
+        $int = (int) $centavos_real;
+        $fra = $centavos_real - $int;
+        //Calculando os centavos do Euro
+        $int_euro = (int) $euro;
+        $centavos_euro = $euro - $int_euro;
+
+
         //mostrar o resultado para o usuário
-        echo "Seus R\$" . number_format($real,3,",", ".")." equivalem a €" . number_format($euro,3,",", ".");
+        echo "Seus R\$" . number_format($real,2,",", ".")." equivalem a €" . number_format($euro,2,",", ".");
     
         //formatação de moeda com  internacionalização!
         
@@ -47,7 +57,11 @@
         */
         $padrão = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
         
-        echo "<p>O valor em real é: " . numfmt_format_currency($padrão, $real, "BRL") . " equivale a ". numfmt_format_currency($padrão, $euro, "EUR")."</p>";
+        echo "<ul><li><p>O valor em real é: <strong>" . numfmt_format_currency($padrão, $int, "BRL") ."</strong> e os Centavos são <strong>" . number_format($fra, 2, ",", ".") . "</strong> equivale a <strong>". numfmt_format_currency($padrão, $int_euro, "EUR")."</strong> e os Centavos do Euro são <strong>". number_format($centavos_euro, 2, ",", ".") . "</strong></p></li></ul>";
+
+
+
+
 
     
         ?>
