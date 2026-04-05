@@ -15,7 +15,11 @@ todo (chamamos o espaço amostral, e indicamos por Ω um conjunto formado por to
 
 
 */
+$espaco_amostral = $_GET['resultado_possivel'];
+$resultado_favoravel = $_GET['resultado_favoravel'];
 
+$probabilidade = $resultado_favoravel / $espaco_amostral;
+echo "A probabilidade de ocorrer o resultado favorável é: " . number_format($probabilidade * 100, 2, ",", ".") . "%";
 ?>
 
     

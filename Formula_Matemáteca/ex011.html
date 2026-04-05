@@ -9,14 +9,24 @@
 <body>
     <main>
             <h1>Probabilidade</h1>
+
             
             
             <form action="ex011.php" method="get">
-                
-                
-                <label for="pergunta_probabilidade">Qual o valor da
+
+                <label for="tip_probabilidade">Qual o tipo de probabilidade?</label>
+                <select name="tipo_probabilidade" id="id_tipo_probabilidade">
+                    <option value="classica">Clássica</option>
+                    <option value="frequentista">Frequentista</option>
+                    <option value="subjectiva">Subjectiva</option>
+                </select>
+
+                <label for="pergunta_probabilidade">Qual o valor dos resultados possíveis?</label>
+                    <input type="number" name="resultado_possivel" id="id_resultado_possivel" step="1">
                 </label>
-                    <input type="number" name="pergunta_probabilidade" id="id_pergunta_probabilidade" step="1">
+                <label for="pergunta_probabilidade">Qual o valor dos resultados favoráveis?</label>
+                    <input type="number" name="resultado_favoravel" id="id_resultado_favoravel" step="1">
+                </label>
                     <input type="submit" value="converter">
 
                 
